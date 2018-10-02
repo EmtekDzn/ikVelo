@@ -1,3 +1,13 @@
+back_office:
+    resource: "@BackOfficeBundle/Controller/"
+    type:     annotation
+    prefix:   /admindep
+
+front_office:
+    resource: "@FrontOfficeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
