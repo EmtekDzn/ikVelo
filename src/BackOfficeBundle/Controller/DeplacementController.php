@@ -3,6 +3,7 @@
 namespace BackOfficeBundle\Controller;
 
 use BackOfficeBundle\Entity\Deplacement;
+use BackOfficeBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -57,7 +58,11 @@ class DeplacementController extends Controller
         $editForm = $this->createForm('BackOfficeBundle\Form\DeplacementType', $deplacement);
         $editForm->handleRequest($request);
 
+        
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $admin = $this->getDoctrine()->getRepository(User::class)->find(1);
+            $deplacement->setUser1($admin);
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('deplacements_edit', array('id' => $deplacement->getId()));
