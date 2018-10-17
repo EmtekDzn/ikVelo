@@ -63,4 +63,27 @@ class TypeUser
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        return $this->typeUser;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
+    }
 }

@@ -1,0 +1,49 @@
+{% extends 'backtemplate.html.twig' %}
+
+{% block body %}
+    <h1>Deplacements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Annee</th>
+                <th>Mois</th>
+                <th>Datevalidation</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Validation</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for deplacement in deplacements %}
+            <tr>
+                <td><a href="{{ path('deplacements_show', { 'id': deplacement.id }) }}">{{ deplacement.annee }}</a></td>
+                <td>{{ deplacement.mois }}</td>
+                <td>{% if deplacement.dateValidation %}{{ deplacement.dateValidation|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if deplacement.created %}{{ deplacement.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if deplacement.updated %}{{ deplacement.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if deplacement.validation %}Yes{% else %}No{% endif %}</td>
+                <td>{{ deplacement.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('deplacements_show', { 'id': deplacement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deplacements_edit', { 'id': deplacement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('back_index') }}">Back to admin panel</a>
+        </li>
+    </ul>
+{% endblock %}

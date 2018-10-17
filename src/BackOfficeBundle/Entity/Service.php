@@ -63,4 +63,9 @@ class Service
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        return $this->service;
+    }
 }

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_type_user_idx", columns={"type_user_id"}), @ORM\Index(name="fk_user_societe1_idx", columns={"societe_id"}), @ORM\Index(name="fk_user_service1_idx", columns={"service_id"}), @ORM\Index(name="fk_user_ville1_idx", columns={"ville_id"})})
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
 class User
@@ -205,7 +206,7 @@ class User
      * Set created.
      *
      * @param \DateTime|null $created
-     *
+     * 
      * @return User
      */
     public function setCreated($created = null)
@@ -353,5 +354,28 @@ class User
     public function getVille()
     {
         return $this->ville;
+    }
+
+    public function __toString()
+    {
+        return $this->prenom." ".$this->nom;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
     }
 }

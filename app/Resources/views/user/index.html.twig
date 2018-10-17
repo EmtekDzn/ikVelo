@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'backtemplate.html.twig' %}
 
 {% block body %}
     <h1>Users list</h1>
@@ -42,6 +42,9 @@
     </table>
 
     <ul>
+        <li>
+            <a href="{{ path('back_index') }}">Back to admin panel</a>
+        </li>
         <li>
             <a href="{{ path('user_new') }}">Create a new user</a>
         </li>

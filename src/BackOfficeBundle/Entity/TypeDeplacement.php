@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TypeDeplacement
  *
  * @ORM\Table(name="type_deplacement")
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
 class TypeDeplacement
@@ -16,6 +17,7 @@ class TypeDeplacement
      * @var string|null
      *
      * @ORM\Column(name="type_deplacement", type="string", length=45, nullable=true)
+     * 
      */
     private $typeDeplacement;
 
@@ -155,5 +157,28 @@ class TypeDeplacement
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->typeDeplacement;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
     }
 }

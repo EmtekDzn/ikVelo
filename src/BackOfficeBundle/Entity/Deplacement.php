@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Deplacement
  *
  * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="fk_deplacement_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_deplacement_user2_idx", columns={"user_id1"})})
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
 class Deplacement
@@ -285,5 +286,24 @@ class Deplacement
     public function getUser1()
     {
         return $this->user1;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
+        $this->dateValidation = new \DateTime("now");
     }
 }
