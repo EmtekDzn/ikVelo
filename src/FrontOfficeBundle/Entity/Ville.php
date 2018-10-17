@@ -2,25 +2,39 @@
 
 namespace FrontOfficeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Ville
+ *
+ * @ORM\Table(name="ville")
+ * @ORM\Entity
  */
 class Ville
 {
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="ville", type="string", length=100, nullable=true)
      */
     private $ville;
 
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="cp", type="string", length=5, nullable=true)
      */
     private $cp;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
 
 
     /**
@@ -79,5 +93,10 @@ class Ville
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->ville;
     }
 }

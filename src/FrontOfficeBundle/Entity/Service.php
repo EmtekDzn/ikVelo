@@ -2,20 +2,32 @@
 
 namespace FrontOfficeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Service
+ *
+ * @ORM\Table(name="service")
+ * @ORM\Entity
  */
 class Service
 {
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="service", type="string", length=45, nullable=true)
      */
     private $service;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
 
 
     /**
@@ -50,5 +62,10 @@ class Service
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->service;
     }
 }

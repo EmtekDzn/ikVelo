@@ -2,65 +2,108 @@
 
 namespace FrontOfficeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * User
+ *
+ * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_type_user_idx", columns={"type_user_id"}), @ORM\Index(name="fk_user_societe1_idx", columns={"societe_id"}), @ORM\Index(name="fk_user_service1_idx", columns={"service_id"}), @ORM\Index(name="fk_user_ville1_idx", columns={"ville_id"})})
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity
  */
 class User
 {
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="nom", type="string", length=100, nullable=true)
      */
     private $nom;
 
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="prenom", type="string", length=100, nullable=true)
      */
     private $prenom;
 
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var float|null
+     *
+     * @ORM\Column(name="distance_init", type="float", precision=10, scale=0, nullable=true)
      */
     private $distanceInit;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \FrontOfficeBundle\Entity\Service
+     * @var \BackOfficeBundle\Entity\Service
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Service")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="service_id", referencedColumnName="id")
+     * })
      */
     private $service;
 
     /**
-     * @var \FrontOfficeBundle\Entity\Societe
+     * @var \BackOfficeBundle\Entity\Societe
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Societe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
+     * })
      */
     private $societe;
 
     /**
-     * @var \FrontOfficeBundle\Entity\TypeUser
+     * @var \BackOfficeBundle\Entity\TypeUser
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\TypeUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="type_user_id", referencedColumnName="id")
+     * })
      */
     private $typeUser;
 
     /**
-     * @var \FrontOfficeBundle\Entity\Ville
+     * @var \BackOfficeBundle\Entity\Ville
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Ville")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
+     * })
      */
     private $ville;
+
 
 
     /**
@@ -163,7 +206,7 @@ class User
      * Set created.
      *
      * @param \DateTime|null $created
-     *
+     * 
      * @return User
      */
     public function setCreated($created = null)
@@ -220,11 +263,11 @@ class User
     /**
      * Set service.
      *
-     * @param \FrontOfficeBundle\Entity\Service|null $service
+     * @param \BackOfficeBundle\Entity\Service|null $service
      *
      * @return User
      */
-    public function setService(\FrontOfficeBundle\Entity\Service $service = null)
+    public function setService(\BackOfficeBundle\Entity\Service $service = null)
     {
         $this->service = $service;
 
@@ -234,7 +277,7 @@ class User
     /**
      * Get service.
      *
-     * @return \FrontOfficeBundle\Entity\Service|null
+     * @return \BackOfficeBundle\Entity\Service|null
      */
     public function getService()
     {
@@ -244,11 +287,11 @@ class User
     /**
      * Set societe.
      *
-     * @param \FrontOfficeBundle\Entity\Societe|null $societe
+     * @param \BackOfficeBundle\Entity\Societe|null $societe
      *
      * @return User
      */
-    public function setSociete(\FrontOfficeBundle\Entity\Societe $societe = null)
+    public function setSociete(\BackOfficeBundle\Entity\Societe $societe = null)
     {
         $this->societe = $societe;
 
@@ -258,7 +301,7 @@ class User
     /**
      * Get societe.
      *
-     * @return \FrontOfficeBundle\Entity\Societe|null
+     * @return \BackOfficeBundle\Entity\Societe|null
      */
     public function getSociete()
     {
@@ -268,11 +311,11 @@ class User
     /**
      * Set typeUser.
      *
-     * @param \FrontOfficeBundle\Entity\TypeUser|null $typeUser
+     * @param \BackOfficeBundle\Entity\TypeUser|null $typeUser
      *
      * @return User
      */
-    public function setTypeUser(\FrontOfficeBundle\Entity\TypeUser $typeUser = null)
+    public function setTypeUser(\BackOfficeBundle\Entity\TypeUser $typeUser = null)
     {
         $this->typeUser = $typeUser;
 
@@ -282,7 +325,7 @@ class User
     /**
      * Get typeUser.
      *
-     * @return \FrontOfficeBundle\Entity\TypeUser|null
+     * @return \BackOfficeBundle\Entity\TypeUser|null
      */
     public function getTypeUser()
     {
@@ -292,11 +335,11 @@ class User
     /**
      * Set ville.
      *
-     * @param \FrontOfficeBundle\Entity\Ville|null $ville
+     * @param \BackOfficeBundle\Entity\Ville|null $ville
      *
      * @return User
      */
-    public function setVille(\FrontOfficeBundle\Entity\Ville $ville = null)
+    public function setVille(\BackOfficeBundle\Entity\Ville $ville = null)
     {
         $this->ville = $ville;
 
@@ -306,10 +349,33 @@ class User
     /**
      * Get ville.
      *
-     * @return \FrontOfficeBundle\Entity\Ville|null
+     * @return \BackOfficeBundle\Entity\Ville|null
      */
     public function getVille()
     {
         return $this->ville;
+    }
+
+    public function __toString()
+    {
+        return $this->prenom." ".$this->nom;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
     }
 }

@@ -2,55 +2,88 @@
 
 namespace FrontOfficeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Deplacement
+ *
+ * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="fk_deplacement_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_deplacement_user2_idx", columns={"user_id1"})})
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity
  */
 class Deplacement
 {
     /**
      * @var int|null
+     *
+     * @ORM\Column(name="annee", type="integer", nullable=true)
      */
     private $annee;
 
     /**
      * @var int|null
+     *
+     * @ORM\Column(name="mois", type="integer", nullable=true)
      */
     private $mois;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="date_validation", type="date", nullable=true)
      */
     private $dateValidation;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 
     /**
      * @var bool|null
+     *
+     * @ORM\Column(name="validation", type="boolean", nullable=true)
      */
     private $validation;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \FrontOfficeBundle\Entity\User
+     * @var \BackOfficeBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
      */
     private $user;
 
     /**
-     * @var \FrontOfficeBundle\Entity\User
+     * @var \BackOfficeBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id1", referencedColumnName="id")
+     * })
      */
     private $user1;
+
 
 
     /**
@@ -210,11 +243,11 @@ class Deplacement
     /**
      * Set user.
      *
-     * @param \FrontOfficeBundle\Entity\User|null $user
+     * @param \BackOfficeBundle\Entity\User|null $user
      *
      * @return Deplacement
      */
-    public function setUser(\FrontOfficeBundle\Entity\User $user = null)
+    public function setUser(\BackOfficeBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -224,7 +257,7 @@ class Deplacement
     /**
      * Get user.
      *
-     * @return \FrontOfficeBundle\Entity\User|null
+     * @return \BackOfficeBundle\Entity\User|null
      */
     public function getUser()
     {
@@ -234,11 +267,11 @@ class Deplacement
     /**
      * Set user1.
      *
-     * @param \FrontOfficeBundle\Entity\User|null $user1
+     * @param \BackOfficeBundle\Entity\User|null $user1
      *
      * @return Deplacement
      */
-    public function setUser1(\FrontOfficeBundle\Entity\User $user1 = null)
+    public function setUser1(\BackOfficeBundle\Entity\User $user1 = null)
     {
         $this->user1 = $user1;
 
@@ -248,10 +281,29 @@ class Deplacement
     /**
      * Get user1.
      *
-     * @return \FrontOfficeBundle\Entity\User|null
+     * @return \BackOfficeBundle\Entity\User|null
      */
     public function getUser1()
     {
         return $this->user1;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
+        $this->dateValidation = new \DateTime("now");
     }
 }

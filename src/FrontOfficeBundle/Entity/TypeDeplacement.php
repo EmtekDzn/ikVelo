@@ -2,35 +2,55 @@
 
 namespace FrontOfficeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * TypeDeplacement
+ *
+ * @ORM\Table(name="type_deplacement")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity
  */
 class TypeDeplacement
 {
     /**
      * @var string|null
+     *
+     * @ORM\Column(name="type_deplacement", type="string", length=45, nullable=true)
+     * 
      */
     private $typeDeplacement;
 
     /**
      * @var float|null
+     *
+     * @ORM\Column(name="montant", type="float", precision=10, scale=0, nullable=true)
      */
     private $montant;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 
     /**
      * @var \DateTime|null
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
 
 
     /**
@@ -137,5 +157,28 @@ class TypeDeplacement
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->typeDeplacement;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated = new \DateTime("now");
     }
 }
