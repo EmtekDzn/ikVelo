@@ -5,7 +5,6 @@ namespace BackOfficeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class DeplacementType extends AbstractType
 {
@@ -14,7 +13,7 @@ class DeplacementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('validation')->add('user1', HiddenType::class, ['data' => 'admin']);
+        $builder->add('validation');
     }/**
      * {@inheritdoc}
      */
