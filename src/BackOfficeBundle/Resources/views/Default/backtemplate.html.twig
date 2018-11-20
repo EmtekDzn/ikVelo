@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/framework/css/backoffice.css') }}" rel="stylesheet" />
+        {% endblock %}
+        {% block javascripts %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="{{ asset('bundles/framework/js/backoffice.js') }}"></script>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header class="header-fixed">
+            <div class="header-limiter">
+                <h1><a href="{{ path('back_index') }}">ik<span>Velo</span></a></h1>
+                <nav>
+                    <a href="{{ path('back_index') }}">Home</a>
+                    <a href="{{ path('user_index') }}">Users</a>
+                    <a href="{{ path('service_index') }}">Services</a>
+                    <a href="{{ path('societe_index') }}">Societes</a>
+                    <a href="{{ path('deplacements_index') }}">Deplacements</a>
+                    <a href="{{ path('stats_index') }}">Statistiques</a>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="header-fixed-placeholder"></div>
+
+        <div class="content">
+            {% block body %}{% endblock %}
+        </div>
+        
+        <footer class="footer-basic-centered">
+
+			<p class="footer-company-motto">More kilometers, more money</p>
+
+			<p class="footer-links">
+				<a href="{{ path('back_index') }}">Home</a>
+				·
+				<a href="{{ path('user_index') }}">Users</a>
+				·
+                <a href="{{ path('service_index') }}">Services</a>
+				·
+                <a href="{{ path('societe_index') }}">Societes</a>
+				·
+                <a href="{{ path('deplacements_index') }}">Deplacements</a>
+                ·
+                <a href="{{ path('stats_index') }}">Statistiques</a>
+			</p>
+
+			<p class="footer-company-name">ikVelo &copy; 2018</p>
+
+		</footer>
+
+    </body>
+</html>

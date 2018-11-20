@@ -27,7 +27,7 @@ class SocieteController extends Controller
 
         $societes = $em->getRepository('BackOfficeBundle:Societe')->findAll();
 
-        return $this->render('societe/index.html.twig', array(
+        return $this->render('BackOfficeBundle:Societe:index.html.twig', array(
             'societes' => $societes,
         ));
     }
@@ -52,7 +52,7 @@ class SocieteController extends Controller
             return $this->redirectToRoute('societe_show', array('id' => $societe->getId()));
         }
 
-        return $this->render('societe/new.html.twig', array(
+        return $this->render('BackOfficeBundle:Societe:new.html.twig', array(
             'societe' => $societe,
             'form' => $form->createView(),
         ));
@@ -68,7 +68,7 @@ class SocieteController extends Controller
     {
         $deleteForm = $this->createDeleteForm($societe);
 
-        return $this->render('societe/show.html.twig', array(
+        return $this->render('BackOfficeBundle:Societe:show.html.twig', array(
             'societe' => $societe,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,7 +92,7 @@ class SocieteController extends Controller
             return $this->redirectToRoute('societe_edit', array('id' => $societe->getId()));
         }
 
-        return $this->render('societe/edit.html.twig', array(
+        return $this->render('BackOfficeBundle:Societe:edit.html.twig', array(
             'societe' => $societe,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

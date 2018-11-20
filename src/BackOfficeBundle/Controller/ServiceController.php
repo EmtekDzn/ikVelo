@@ -28,7 +28,7 @@ class ServiceController extends Controller
 
         $services = $em->getRepository('BackOfficeBundle:Service')->findAll();
 
-        return $this->render('service/index.html.twig', array(
+        return $this->render('BackOfficeBundle:Service:index.html.twig', array(
             'services' => $services,
         ));
     }
@@ -53,7 +53,7 @@ class ServiceController extends Controller
             return $this->redirectToRoute('service_show', array('id' => $service->getId()));
         }
 
-        return $this->render('service/new.html.twig', array(
+        return $this->render('BackOfficeBundle:Service:new.html.twig', array(
             'service' => $service,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ServiceController extends Controller
     {
         $deleteForm = $this->createDeleteForm($service);
 
-        return $this->render('service/show.html.twig', array(
+        return $this->render('BackOfficeBundle:Service:show.html.twig', array(
             'service' => $service,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -93,7 +93,7 @@ class ServiceController extends Controller
             return $this->redirectToRoute('service_edit', array('id' => $service->getId()));
         }
 
-        return $this->render('service/edit.html.twig', array(
+        return $this->render('BackOfficeBundle:Service:edit.html.twig', array(
             'service' => $service,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

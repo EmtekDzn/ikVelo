@@ -28,7 +28,7 @@ class DeplacementController extends Controller
 
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findAll();
 
-        return $this->render('deplacement/index.html.twig', array(
+        return $this->render('BackOfficeBundle:Deplacement:index.html.twig', array(
             'deplacements' => $deplacements,
         ));
     }
@@ -42,7 +42,7 @@ class DeplacementController extends Controller
     public function showAction(Deplacement $deplacement)
     {
 
-        return $this->render('deplacement/show.html.twig', array(
+        return $this->render('BackOfficeBundle:Deplacement:show.html.twig', array(
             'deplacement' => $deplacement,
         ));
     }
@@ -68,7 +68,7 @@ class DeplacementController extends Controller
             return $this->redirectToRoute('deplacements_edit', array('id' => $deplacement->getId()));
         }
 
-        return $this->render('deplacement/edit.html.twig', array(
+        return $this->render('BackOfficeBundle:Deplacement:edit.html.twig', array(
             'deplacement' => $deplacement,
             'edit_form' => $editForm->createView(),
         ));
