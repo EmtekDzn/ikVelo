@@ -4,11 +4,11 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <link href="{{ asset('bundles/framework/css/backoffice.css') }}" rel="stylesheet" />
+            <link href="{{ asset('bundles/backoffice/css/backoffice.css') }}" rel="stylesheet" />
         {% endblock %}
         {% block javascripts %}
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script src="{{ asset('bundles/framework/js/backoffice.js') }}"></script>
+            <script src="{{ asset('bundles/backoffice/js/backoffice.js') }}"></script>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
