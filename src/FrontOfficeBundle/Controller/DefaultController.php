@@ -17,7 +17,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/")
+     * @Route("/", name="front_landing")
      */
     public function landingAction($id = 2)
     {

@@ -5,11 +5,12 @@ namespace FrontOfficeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use FrontOfficeBundle\Entity\Deplacement;
 
 class DeplacementController extends Controller
 {
     /**
-     * @Route("/list/{userId}", name="deplacements_list")
+     * @Route("/list/{userId}", name="front_deplacements_list")
      */
     public function listAction($userId = 2)
     {
@@ -24,30 +25,33 @@ class DeplacementController extends Controller
      * @Route("/create/{userId}")
      */
     public function createAction(Request $request, $userId = 2)
-    {
-        $createForm = $this->createForm('BackOfficeBundle\Form\DeplacementType');
-        $createForm->handleRequest($request);
+    {   
+        $deplacement = new Deplacement();
+        $form = $this->createForm('FrontOfficeBundle\Form\DeplacementType', $deplacement);
+        $form->handleRequest($request);
 
 
-        if ($createForm->isSubmitted() && $createForm->isValid()) {
-            $user = $this->getDoctrine()->getRepository(User::class)->find($userId);
-            $deplacement->setUser1($user);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($userId);
+            $deplacement->setUser($user);
 
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($deplacement);
+            $em->flush();
 
-            return $this->redirectToRoute('deplacements_list');
+            return $this->redirectToRoute('front_deplacements_list');
         }
 
         return $this->render('FrontOfficeBundle:DeplacementController:create.html.twig', array('form' => $createForm->createView()));
     }
 
     /**
-     * @Route("/edit/{id}")
+     * @Route("/edit/{id}", name="front_deplacement_edit")
      */
     public function editAction($id)
     {
         return $this->render('FrontOfficeBundle:DeplacementController:edit.html.twig', array(
-            // ...
+
         ));
     }
 

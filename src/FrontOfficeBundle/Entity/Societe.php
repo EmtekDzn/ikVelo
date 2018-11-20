@@ -36,9 +36,9 @@ class Societe
     private $id;
 
     /**
-     * @var \BackOfficeBundle\Entity\Ville
+     * @var \FrontOfficeBundle\Entity\Ville
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Ville")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Ville")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
      * })
@@ -108,11 +108,11 @@ class Societe
     /**
      * Set ville.
      *
-     * @param \BackOfficeBundle\Entity\Ville|null $ville
+     * @param \FrontOfficeBundle\Entity\Ville|null $ville
      *
      * @return Societe
      */
-    public function setVille(\BackOfficeBundle\Entity\Ville $ville = null)
+    public function setVille(\FrontOfficeBundle\Entity\Ville $ville = null)
     {
         $this->ville = $ville;
 
@@ -122,7 +122,7 @@ class Societe
     /**
      * Get ville.
      *
-     * @return \BackOfficeBundle\Entity\Ville|null
+     * @return \FrontOfficeBundle\Entity\Ville|null
      */
     public function getVille()
     {

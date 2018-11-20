@@ -3,6 +3,7 @@
 {% block title %}FrontOfficeBundle:DeplacementController:list{% endblock %}
 
 {% block body %}
+<a href="{{path('front_landing')}}">Accueil</a>
 <table>
     <thead>
         <tr>
@@ -19,13 +20,20 @@
     <tbody>
         {% for deplacement in deplacements %}
         <tr>
-            <td><a href="{{ path('deplacements_show', { 'id': deplacement.id }) }}">{{ deplacement.annee }}</a></td>
+            <td>{{ deplacement.annee }}</a></td>
             <td>{{ deplacement.mois }}</td>
             <td>{% if deplacement.dateValidation %}{{ deplacement.dateValidation|date('Y-m-d') }}{% endif %}</td>
             <td>{% if deplacement.created %}{{ deplacement.created|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if deplacement.updated %}{{ deplacement.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if deplacement.validation %}Yes{% else %}No{% endif %}</td>
             <td>{{ deplacement.id }}</td>
+
+            {% if not deplacement.validation %}
+            <td>
+                <a href="{{ path('front_deplacement_edit', { 'id': deplacement.id }) }}">edit</a>
+            </td>
+            {% endif %}
+
         </tr>
         {% endfor %}
     </tbody>

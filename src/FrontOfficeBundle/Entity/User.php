@@ -65,9 +65,9 @@ class User
     private $id;
 
     /**
-     * @var \BackOfficeBundle\Entity\Service
+     * @var \FrontOfficeBundle\Entity\Service
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Service")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Service")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="service_id", referencedColumnName="id")
      * })
@@ -75,9 +75,9 @@ class User
     private $service;
 
     /**
-     * @var \BackOfficeBundle\Entity\Societe
+     * @var \FrontOfficeBundle\Entity\Societe
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Societe")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Societe")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
      * })
@@ -85,9 +85,9 @@ class User
     private $societe;
 
     /**
-     * @var \BackOfficeBundle\Entity\TypeUser
+     * @var \FrontOfficeBundle\Entity\TypeUser
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\TypeUser")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\TypeUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="type_user_id", referencedColumnName="id")
      * })
@@ -95,9 +95,9 @@ class User
     private $typeUser;
 
     /**
-     * @var \BackOfficeBundle\Entity\Ville
+     * @var \FrontOfficeBundle\Entity\Ville
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Ville")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Ville")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
      * })
@@ -263,11 +263,11 @@ class User
     /**
      * Set service.
      *
-     * @param \BackOfficeBundle\Entity\Service|null $service
+     * @param \FrontOfficeBundle\Entity\Service|null $service
      *
      * @return User
      */
-    public function setService(\BackOfficeBundle\Entity\Service $service = null)
+    public function setService(\FrontOfficeBundle\Entity\Service $service = null)
     {
         $this->service = $service;
 
@@ -277,7 +277,7 @@ class User
     /**
      * Get service.
      *
-     * @return \BackOfficeBundle\Entity\Service|null
+     * @return \FrontOfficeBundle\Entity\Service|null
      */
     public function getService()
     {
@@ -287,11 +287,11 @@ class User
     /**
      * Set societe.
      *
-     * @param \BackOfficeBundle\Entity\Societe|null $societe
+     * @param \FrontOfficeBundle\Entity\Societe|null $societe
      *
      * @return User
      */
-    public function setSociete(\BackOfficeBundle\Entity\Societe $societe = null)
+    public function setSociete(\FrontOfficeBundle\Entity\Societe $societe = null)
     {
         $this->societe = $societe;
 
@@ -301,7 +301,7 @@ class User
     /**
      * Get societe.
      *
-     * @return \BackOfficeBundle\Entity\Societe|null
+     * @return \FrontOfficeBundle\Entity\Societe|null
      */
     public function getSociete()
     {
@@ -311,11 +311,11 @@ class User
     /**
      * Set typeUser.
      *
-     * @param \BackOfficeBundle\Entity\TypeUser|null $typeUser
+     * @param \FrontOfficeBundle\Entity\TypeUser|null $typeUser
      *
      * @return User
      */
-    public function setTypeUser(\BackOfficeBundle\Entity\TypeUser $typeUser = null)
+    public function setTypeUser(\FrontOfficeBundle\Entity\TypeUser $typeUser = null)
     {
         $this->typeUser = $typeUser;
 
@@ -325,7 +325,7 @@ class User
     /**
      * Get typeUser.
      *
-     * @return \BackOfficeBundle\Entity\TypeUser|null
+     * @return \FrontOfficeBundle\Entity\TypeUser|null
      */
     public function getTypeUser()
     {
@@ -335,11 +335,11 @@ class User
     /**
      * Set ville.
      *
-     * @param \BackOfficeBundle\Entity\Ville|null $ville
+     * @param \FrontOfficeBundle\Entity\Ville|null $ville
      *
      * @return User
      */
-    public function setVille(\BackOfficeBundle\Entity\Ville $ville = null)
+    public function setVille(\FrontOfficeBundle\Entity\Ville $ville = null)
     {
         $this->ville = $ville;
 
@@ -349,7 +349,7 @@ class User
     /**
      * Get ville.
      *
-     * @return \BackOfficeBundle\Entity\Ville|null
+     * @return \FrontOfficeBundle\Entity\Ville|null
      */
     public function getVille()
     {

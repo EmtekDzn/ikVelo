@@ -65,9 +65,9 @@ class DeplacementJour
     private $id;
 
     /**
-     * @var \BackOfficeBundle\Entity\Deplacement
+     * @var \FrontOfficeBundle\Entity\Deplacement
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Deplacement")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Deplacement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="deplacement_id", referencedColumnName="id")
      * })
@@ -75,9 +75,9 @@ class DeplacementJour
     private $deplacement;
 
     /**
-     * @var \BackOfficeBundle\Entity\TypeDeplacement
+     * @var \FrontOfficeBundle\Entity\TypeDeplacement
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\TypeDeplacement")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\TypeDeplacement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="type_deplacement_id", referencedColumnName="id")
      * })
@@ -243,11 +243,11 @@ class DeplacementJour
     /**
      * Set deplacement.
      *
-     * @param \BackOfficeBundle\Entity\Deplacement|null $deplacement
+     * @param \FrontOfficeBundle\Entity\Deplacement|null $deplacement
      *
      * @return DeplacementJour
      */
-    public function setDeplacement(\BackOfficeBundle\Entity\Deplacement $deplacement = null)
+    public function setDeplacement(\FrontOfficeBundle\Entity\Deplacement $deplacement = null)
     {
         $this->deplacement = $deplacement;
 
@@ -257,7 +257,7 @@ class DeplacementJour
     /**
      * Get deplacement.
      *
-     * @return \BackOfficeBundle\Entity\Deplacement|null
+     * @return \FrontOfficeBundle\Entity\Deplacement|null
      */
     public function getDeplacement()
     {
@@ -267,11 +267,11 @@ class DeplacementJour
     /**
      * Set typeDeplacement.
      *
-     * @param \BackOfficeBundle\Entity\TypeDeplacement|null $typeDeplacement
+     * @param \FrontOfficeBundle\Entity\TypeDeplacement|null $typeDeplacement
      *
      * @return DeplacementJour
      */
-    public function setTypeDeplacement(\BackOfficeBundle\Entity\TypeDeplacement $typeDeplacement = null)
+    public function setTypeDeplacement(\FrontOfficeBundle\Entity\TypeDeplacement $typeDeplacement = null)
     {
         $this->typeDeplacement = $typeDeplacement;
 
@@ -281,7 +281,7 @@ class DeplacementJour
     /**
      * Get typeDeplacement.
      *
-     * @return \BackOfficeBundle\Entity\TypeDeplacement|null
+     * @return \FrontOfficeBundle\Entity\TypeDeplacement|null
      */
     public function getTypeDeplacement()
     {

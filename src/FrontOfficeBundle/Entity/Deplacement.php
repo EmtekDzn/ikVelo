@@ -65,9 +65,9 @@ class Deplacement
     private $id;
 
     /**
-     * @var \BackOfficeBundle\Entity\User
+     * @var \FrontOfficeBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -75,9 +75,9 @@ class Deplacement
     private $user;
 
     /**
-     * @var \BackOfficeBundle\Entity\User
+     * @var \FrontOfficeBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id1", referencedColumnName="id")
      * })
@@ -243,11 +243,11 @@ class Deplacement
     /**
      * Set user.
      *
-     * @param \BackOfficeBundle\Entity\User|null $user
+     * @param \FrontOfficeBundle\Entity\User|null $user
      *
      * @return Deplacement
      */
-    public function setUser(\BackOfficeBundle\Entity\User $user = null)
+    public function setUser(\FrontOfficeBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -257,7 +257,7 @@ class Deplacement
     /**
      * Get user.
      *
-     * @return \BackOfficeBundle\Entity\User|null
+     * @return \FrontOfficeBundle\Entity\User|null
      */
     public function getUser()
     {
@@ -267,11 +267,11 @@ class Deplacement
     /**
      * Set user1.
      *
-     * @param \BackOfficeBundle\Entity\User|null $user1
+     * @param \FrontOfficeBundle\Entity\User|null $user1
      *
      * @return Deplacement
      */
-    public function setUser1(\BackOfficeBundle\Entity\User $user1 = null)
+    public function setUser1(\FrontOfficeBundle\Entity\User $user1 = null)
     {
         $this->user1 = $user1;
 
@@ -281,7 +281,7 @@ class Deplacement
     /**
      * Get user1.
      *
-     * @return \BackOfficeBundle\Entity\User|null
+     * @return \FrontOfficeBundle\Entity\User|null
      */
     public function getUser1()
     {
