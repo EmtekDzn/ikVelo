@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Societe controller.
  *
- * @Route("societe")
+ * @Route("societes")
  */
 class SocieteController extends Controller
 {

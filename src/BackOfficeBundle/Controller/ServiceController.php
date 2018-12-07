@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Service controller.
  *
- * @Route("service")
+ * @Route("services")
  */
 class ServiceController extends Controller
 {
