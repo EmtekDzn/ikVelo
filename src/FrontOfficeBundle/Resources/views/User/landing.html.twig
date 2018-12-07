@@ -1,8 +1,9 @@
-{% extends "::fronttemplate.html.twig" %}
+{% extends 'FrontOfficeBundle:Default:fronttemplate.html.twig' %}
 
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1>Bonjour M. {{userFirstname}} {{userLastname}}</h1>
-<a href="{{ path('front_deplacements_list') }}">Liste</a>
+<h1>Bonjour M. {{user.prenom}} {{user.nom}}</h1>
+<a href="{{ path('front_deplacements_list', { 'id': user.id }) }}">Lister mes déplacements</a>
+<a href="{{ path('front_deplacements_create', { 'id': user.id }) }}">Créer un déplacement</a>
 {% endblock %}

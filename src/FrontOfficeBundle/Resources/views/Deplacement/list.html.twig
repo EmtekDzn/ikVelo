@@ -1,4 +1,4 @@
-{% extends "::fronttemplate.html.twig" %}
+{% extends 'FrontOfficeBundle:Default:fronttemplate.html.twig' %}
 
 {% block title %}FrontOfficeBundle:Deplacement:list{% endblock %}
 
@@ -29,7 +29,7 @@
             <td>{{ deplacement.id }}</td>
 
             <td>
-                <a href="{{ path('front_deplacement_jour_list', { 'deplacementId': deplacement.id }) }}">details</a>
+                <a href="{{ path('front_deplacement_jour_list', { 'id': deplacement.id }) }}">details</a>
             </td>
             {% if not deplacement.validation %}
             <td>

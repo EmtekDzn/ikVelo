@@ -1,9 +1,12 @@
-{% extends "::fronttemplate.html.twig" %}
+{% extends 'FrontOfficeBundle:Default:fronttemplate.html.twig' %}
 
 {% block title %}FrontOfficeBundle:DeplacementJour:list{% endblock %}
 
 {% block body %}
 <a href="{{path('front_landing')}}">Accueil</a>
+{% if not deplacement.validation %}
+    <a href="{{ path('front_deplacement_jour_create', { 'id': deplacement.id }) }}">Créer un nouveau déplacement</a>
+{% endif %}
 <table>
     <thead>
         <tr>
@@ -13,7 +16,6 @@
             <th>Date</th>
             <th>Created</th>
             <th>Updated</th>
-            <th>Validation</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -26,11 +28,10 @@
             <td>{% if deplacementJour.date %}{{ deplacementJour.date|date('Y-m-d') }}{% endif %}</td>
             <td>{% if deplacementJour.created %}{{ deplacementJour.created|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if deplacementJour.updated %}{{ deplacementJour.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if deplacement.validation %}Yes{% else %}No{% endif %}</td>
 
             {% if not deplacement.validation %}
             <td>
-                <a href="{{ path('front_deplacement_jour_edit', { 'deplacementId': deplacementJour.id }) }}">edit</a>
+                <a href="{{ path('front_deplacement_jour_edit', { 'id': deplacementJour.id }) }}">edit</a>
             </td>
             {% endif %}
 

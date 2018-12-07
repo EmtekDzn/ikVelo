@@ -26,8 +26,7 @@ class DefaultController extends Controller
 
             
             return $this->render('FrontOfficeBundle:User:landing.html.twig', array(
-                'userFirstname' => $user->getPrenom(),
-                'userLastname' => $user->getNom(),
+                'user' => $user
             ));
         } else {
             throw new BadRequestHttpException('Invalid URL', null, 400);

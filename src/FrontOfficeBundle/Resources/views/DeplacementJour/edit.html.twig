@@ -1,11 +1,11 @@
 {% extends 'FrontOfficeBundle:Default:fronttemplate.html.twig' %}
 
-{% block title %}FrontOfficeBundle:Deplacement:create{% endblock %}
+{% block title %}FrontOfficeBundle:DeplacementJour:edit{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Deplacement:create page</h1>
+<a href="{{path('front_landing')}}">Accueil</a>
 {{ form_start(form) }}
 {{ form_widget(form) }}
-<input type="submit" value="Create" />
+<input type="submit" value="Edit" />
 {{ form_end(form) }}
 {% endblock %}
