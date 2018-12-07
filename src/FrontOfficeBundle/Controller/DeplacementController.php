@@ -7,6 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use FrontOfficeBundle\Entity\Deplacement;
 
+/**
+ * @Route("deplacements")
+ */
 class DeplacementController extends Controller
 {
     /**
@@ -16,7 +19,7 @@ class DeplacementController extends Controller
     {
         $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($userId);
         $deplacements = $this->getDoctrine()->getRepository('FrontOfficeBundle:Deplacement')->findBy(array('user' => $user));
-        return $this->render('FrontOfficeBundle:DeplacementController:list.html.twig', array(
+        return $this->render('FrontOfficeBundle:Deplacement:list.html.twig', array(
             'deplacements' => $deplacements
         ));
     }
@@ -42,7 +45,7 @@ class DeplacementController extends Controller
             return $this->redirectToRoute('front_deplacements_list');
         }
 
-        return $this->render('FrontOfficeBundle:DeplacementController:create.html.twig', array('form' => $createForm->createView()));
+        return $this->render('FrontOfficeBundle:Deplacement:create.html.twig', array('form' => $createForm->createView()));
     }
 
     /**
@@ -50,7 +53,7 @@ class DeplacementController extends Controller
      */
     public function editAction($id)
     {
-        return $this->render('FrontOfficeBundle:DeplacementController:edit.html.twig', array(
+        return $this->render('FrontOfficeBundle:Deplacement:edit.html.twig', array(
 
         ));
     }

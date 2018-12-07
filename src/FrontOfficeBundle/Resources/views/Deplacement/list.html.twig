@@ -1,6 +1,6 @@
 {% extends "::fronttemplate.html.twig" %}
 
-{% block title %}FrontOfficeBundle:DeplacementController:list{% endblock %}
+{% block title %}FrontOfficeBundle:Deplacement:list{% endblock %}
 
 {% block body %}
 <a href="{{path('front_landing')}}">Accueil</a>
@@ -28,6 +28,9 @@
             <td>{% if deplacement.validation %}Yes{% else %}No{% endif %}</td>
             <td>{{ deplacement.id }}</td>
 
+            <td>
+                <a href="{{ path('front_deplacement_jour_list', { 'deplacementId': deplacement.id }) }}">details</a>
+            </td>
             {% if not deplacement.validation %}
             <td>
                 <a href="{{ path('front_deplacement_edit', { 'id': deplacement.id }) }}">edit</a>
