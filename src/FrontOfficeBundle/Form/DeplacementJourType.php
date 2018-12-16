@@ -20,7 +20,7 @@ class DeplacementJourType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FrontOfficeBundle\Entity\DeplacementJour'
+            'data_class' => 'BackOfficeBundle\Entity\DeplacementJour'
         ));
     }
 
@@ -29,7 +29,7 @@ class DeplacementJourType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontofficebundle_deplacementjour';
+        return 'backofficebundle_deplacementjour';
     }
 
 

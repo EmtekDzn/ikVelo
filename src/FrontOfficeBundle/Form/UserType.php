@@ -20,7 +20,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FrontOfficeBundle\Entity\User'
+            'data_class' => 'BackOfficeBundle\Entity\User'
         ));
     }
 
@@ -29,7 +29,7 @@ class UserType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontofficebundle_user';
+        return 'backofficebundle_user';
     }
 
 

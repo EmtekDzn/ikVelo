@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-use FrontOfficeBundle\Entity\DeplacementJour;
+use BackOfficeBundle\Entity\DeplacementJour;
 
 /**
  * @Route("deplacementsjour")
@@ -19,8 +19,8 @@ class DeplacementJourController extends Controller
     public function listAction($id)
     {   
         
-        $deplacement = $this->getDoctrine()->getRepository('FrontOfficeBundle:Deplacement')->find($id);
-        $deplacementsJours = $this->getDoctrine()->getRepository('FrontOfficeBundle:DeplacementJour')->findBy(array('deplacement' => $deplacement));
+        $deplacement = $this->getDoctrine()->getRepository('BackOfficeBundle:Deplacement')->find($id);
+        $deplacementsJours = $this->getDoctrine()->getRepository('BackOfficeBundle:DeplacementJour')->findBy(array('deplacement' => $deplacement));
         return $this->render('FrontOfficeBundle:DeplacementJour:list.html.twig', array(
             'deplacement' => $deplacement,
             'deplacementJours' => $deplacementsJours,
@@ -38,7 +38,7 @@ class DeplacementJourController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $deplacement = $this->getDoctrine()->getRepository('FrontOfficeBundle:Deplacement')->find($id);
+            $deplacement = $this->getDoctrine()->getRepository('BackOfficeBundle:Deplacement')->find($id);
             $deplacementJour->setDeplacement($deplacement);
 
             $date = new \DateTime();

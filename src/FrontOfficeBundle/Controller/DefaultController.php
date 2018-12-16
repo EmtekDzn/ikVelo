@@ -4,7 +4,7 @@ namespace FrontOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use FrontOfficeBundle\Entity\User;
+use BackOfficeBundle\Entity\User;
 
 class DefaultController extends Controller
 {
@@ -22,7 +22,7 @@ class DefaultController extends Controller
     public function landingAction($id = 2)
     {
         if (is_numeric($id)) {
-            $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($id);
+            $user = $this->getDoctrine()->getRepository('BackOfficeBundle:User')->find($id);
 
             
             return $this->render('FrontOfficeBundle:User:landing.html.twig', array(

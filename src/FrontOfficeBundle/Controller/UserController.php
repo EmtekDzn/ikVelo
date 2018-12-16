@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-use FrontOfficeBundle\Entity\User;
+use BackOfficeBundle\Entity\User;
 
 class UserController extends Controller
 {
@@ -16,14 +16,14 @@ class UserController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($id);
+        $user = $this->getDoctrine()->getRepository('BackOfficeBundle:User')->find($id);
         $editForm = $this->createForm('FrontOfficeBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $user->setUpdated(time());
             return $this->redirectToRoute('front_landing');
         }
 

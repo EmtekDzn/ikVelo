@@ -20,7 +20,7 @@ class DeplacementType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FrontOfficeBundle\Entity\Deplacement'
+            'data_class' => 'BackOfficeBundle\Entity\Deplacement'
         ));
     }
 
@@ -29,7 +29,7 @@ class DeplacementType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontofficebundle_deplacement';
+        return 'backofficebundle_deplacement';
     }
 
 

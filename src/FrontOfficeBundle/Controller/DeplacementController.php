@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-use FrontOfficeBundle\Entity\Deplacement;
+use BackOfficeBundle\Entity\Deplacement;
 
 /**
  * @Route("deplacements")
@@ -18,8 +18,8 @@ class DeplacementController extends Controller
      */
     public function listAction($id)
     {
-        $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($id);
-        $deplacements = $this->getDoctrine()->getRepository('FrontOfficeBundle:Deplacement')->findBy(array('user' => $user));
+        $user = $this->getDoctrine()->getRepository('BackOfficeBundle:User')->find($id);
+        $deplacements = $this->getDoctrine()->getRepository('BackOfficeBundle:Deplacement')->findBy(array('user' => $user));
         return $this->render('FrontOfficeBundle:Deplacement:list.html.twig', array(
             'deplacements' => $deplacements
         ));
@@ -36,7 +36,7 @@ class DeplacementController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $this->getDoctrine()->getRepository('FrontOfficeBundle:User')->find($id);
+            $user = $this->getDoctrine()->getRepository('BackOfficeBundle:User')->find($id);
             $deplacement->setUser($user);
 
             $em = $this->getDoctrine()->getManager();
