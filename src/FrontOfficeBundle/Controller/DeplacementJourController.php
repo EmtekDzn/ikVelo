@@ -76,7 +76,6 @@ class DeplacementJourController extends Controller
         }
 
         return $this->render('FrontOfficeBundle:DeplacementJour:edit.html.twig', array(
-            'deplacementJour' => $deplacementJour,
             'form' => $editForm->createView(),
         ));
     }

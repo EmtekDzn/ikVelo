@@ -68,7 +68,6 @@ class DeplacementController extends Controller
         }
 
         return $this->render('FrontOfficeBundle:Deplacement:edit.html.twig', array(
-            'deplacement' => $deplacement,
             'form' => $form->createView(),
         ));
     }

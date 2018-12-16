@@ -3,7 +3,6 @@
 {% block title %}FrontOfficeBundle:DeplacementJour:list{% endblock %}
 
 {% block body %}
-<a href="{{path('front_landing')}}">Accueil</a>
 {% if not deplacement.validation %}
     <a href="{{ path('front_deplacement_jour_create', { 'id': deplacement.id }) }}">Créer un nouveau déplacement</a>
 {% endif %}

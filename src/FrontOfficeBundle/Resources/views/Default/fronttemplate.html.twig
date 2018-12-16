@@ -11,7 +11,17 @@
 </head>
 
 <body>
+    <header>
+        {% block header %}
+        <a href="{{path('front_landing')}}">Accueil</a>
+        {% endblock %}
+    </header>
     {% block body %}{% endblock %}
+    <footer>
+        {% block footer %}
+        
+        {% endblock %}
+    </footer>
     {% block javascripts %}{% endblock %}
 </body>
 
