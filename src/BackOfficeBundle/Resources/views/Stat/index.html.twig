@@ -8,6 +8,30 @@
     <pre>
         {{ dump(kmAndUsersPerSociety) }}
     </pre>
+    <pre>
+        {{ dump(kmPerMonthPerUserPerSociety) }}
+    </pre>
+
+    <table id="customers">
+        <tr>
+            <th>Societe</th>
+            {% for month in months %}
+                <th>{{ month }}</th>
+            {% endfor %}
+        </tr>
+        {% for key, value in kmPerMonthPerUserPerSociety %}
+            <tr>
+                <td>{{ key }}</td>
+                {% for monthNb in value %}
+                <td>
+                    {% for keyb, value in monthNb %}
+                        {{keyb}} : {{value}} Km
+                    {% endfor %}
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
 
     <ul>
         <li>
