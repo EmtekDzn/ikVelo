@@ -5,6 +5,7 @@ namespace WebServiceBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DeplacementController extends Controller
 {
@@ -15,7 +16,19 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findAllRest();
-        return new JsonResponse($deplacements);
+        header("Access-Control-Allow-Origin: *");
+        // header("Content­-Type: application/json");
+        $response = new Response(
+            json_encode($deplacements),
+            Response::HTTP_OK,
+            // array('Content­-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*', 'Access-Control-Allow-Methods' => '*')
+            array()
+        );
+        $response->headers->set('Access­-Control-­Allow-­Origin', '*');
+        $response->headers->set('Content-Type', 'application/json');
+        // $response = new JsonResponse(json_encode($deplacements));
+        // dump($response); 
+        return $response;
     }
 
     /**
@@ -25,7 +38,9 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserIdRest($id);
-        return new JsonResponse($deplacements);
+        $response = new JsonResponse(json_encode($deplacements));
+        // dump($response);
+        return $response;
     }
 
     /**
@@ -35,7 +50,12 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserYearMonthRest($id, $year, $month);
-        return new JsonResponse($deplacements);
+        $response = new Response(
+            json_encode($deplacements),
+            Response::HTTP_OK,
+            array('Content­Type' => 'application/json', 'Access­Control­Allow­Origin' => '*')
+        );
+        return $response;
     }
 
 }
