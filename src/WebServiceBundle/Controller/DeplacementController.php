@@ -21,11 +21,11 @@ class DeplacementController extends Controller
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
-            // array('Content­-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*', 'Access-Control-Allow-Methods' => '*')
-            array()
+            array('Content­-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
+            // array()
         );
-        $response->headers->set('Access­-Control-­Allow-­Origin', '*');
-        $response->headers->set('Content-Type', 'application/json');
+        // $response->headers->set('Access­-Control-­Allow-­Origin', '*');
+        // $response->headers->set('Content-Type', 'application/json');
         // $response = new JsonResponse(json_encode($deplacements));
         // dump($response); 
         return $response;
@@ -38,7 +38,12 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserIdRest($id);
-        $response = new JsonResponse(json_encode($deplacements));
+        header("Access-Control-Allow-Origin: *");
+        $response = new Response(
+            json_encode($deplacements),
+            Response::HTTP_OK,
+            array('Content­-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
+        );
         // dump($response);
         return $response;
     }
@@ -50,10 +55,11 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserYearMonthRest($id, $year, $month);
+        header("Access-Control-Allow-Origin: *");
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
-            array('Content­Type' => 'application/json', 'Access­Control­Allow­Origin' => '*')
+            array('Content­-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
         );
         return $response;
     }
