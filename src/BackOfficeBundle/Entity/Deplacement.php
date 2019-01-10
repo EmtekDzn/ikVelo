@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="fk_deplacement_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_deplacement_user2_idx", columns={"user_id1"})})
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="BackOfficeBundle\Repository\DeplacementRepository")
+ * @ORM\Entity(repositoryClass="BackOfficeBundle\Entity\DeplacementRepository")
  */
 class Deplacement
 {

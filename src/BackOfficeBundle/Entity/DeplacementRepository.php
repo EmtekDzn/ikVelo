@@ -1,6 +1,6 @@
 <?php
 
-namespace BackOfficeBundle\Repository;
+namespace BackOfficeBundle\Entity;
 
 /**
  * DeplacementRepository

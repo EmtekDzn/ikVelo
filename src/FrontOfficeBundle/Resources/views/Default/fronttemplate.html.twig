@@ -11,16 +11,25 @@
 </head>
 
 <body>
-    <header>
-        {% block header %}
-        <a href="{{path('front_landing')}}">Accueil</a>
-        {% endblock %}
+    <header class="header-fixed">
+        <div class="header-limiter">
+            <h1><a href="{{ path('front_landing') }}">ik<span>Velo</span></a></h1>
+            <nav>
+                <a href="{{path('front_landing')}}">Accueil</a>
+            </nav>
+        </div>
     </header>
-    {% block body %}{% endblock %}
-    <footer>
-        {% block footer %}
-        
-        {% endblock %}
+    <div class="header-fixed-placeholder"></div>
+
+    <div class="content">
+        {% block body %}{% endblock %}
+    </div>
+
+    <footer class="footer-basic-centered">
+        <p class="footer-company-motto">More kilometers, more money</p>
+        <p class="footer-links">
+        </p>
+        <p class="footer-company-name">ikVelo &copy; 2018</p>
     </footer>
     {% block javascripts %}{% endblock %}
 </body>
