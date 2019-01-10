@@ -13,9 +13,9 @@ Create a new Symfony project (version 3.1) named ikVelo with :
 
     symfony new ikVelo 3.1
 
-Next up, pull this project ?
+Next up, clone the repository :
 
-    git pull ... ?
+    git clone https://github.com/EmtekDzn/ikVelo.git
 
 Then run this commands inside the project folder to install the assets :
 
