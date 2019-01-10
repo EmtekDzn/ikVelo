@@ -22,5 +22,5 @@ Then run this commands inside the project folder to install the assets :
     php bin/console cache:clear
     php bin/console assets:install
 
-Make sur to read [this documentation](https://symfony.com/doc/3.1/setup/web_server_configuration.html) to set up your Apache site.
+Make sure to read [this documentation](https://symfony.com/doc/3.1/setup/web_server_configuration.html) to set up your Apache site.
 Edit the *parameters.yml* file in *app/config/* to match your configuration.
