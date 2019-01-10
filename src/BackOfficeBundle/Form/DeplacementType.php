@@ -6,16 +6,26 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
+/**
+ * DeplacementType form for validation of the Deplacement in its edition
+ * 
+ */
 class DeplacementType extends AbstractType
 {
     /**
      * {@inheritdoc}
+     * 
+     * Only put validation 
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('validation');
-    }/**
+    }
+    
+    /**
      * {@inheritdoc}
+     * 
      */
     public function configureOptions(OptionsResolver $resolver)
     {

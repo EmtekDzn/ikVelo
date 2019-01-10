@@ -5,7 +5,7 @@ namespace BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Societe
+ * Societe entity
  *
  * @ORM\Table(name="societe", indexes={@ORM\Index(name="fk_societe_ville1_idx", columns={"ville_id"})})
  * @ORM\Entity

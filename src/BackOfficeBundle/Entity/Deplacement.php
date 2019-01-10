@@ -5,7 +5,7 @@ namespace BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Deplacement
+ * Deplacement entity
  *
  * @ORM\Table(name="deplacement", indexes={@ORM\Index(name="fk_deplacement_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_deplacement_user2_idx", columns={"user_id1"})})
  * @ORM\HasLifecycleCallbacks

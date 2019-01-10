@@ -5,7 +5,7 @@ namespace BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TypeUser
+ * TypeUser entity
  *
  * @ORM\Table(name="type_user")
  * @ORM\Entity

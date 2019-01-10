@@ -5,7 +5,7 @@ namespace BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TypeDeplacement
+ * TypeDeplacement entity
  *
  * @ORM\Table(name="type_deplacement")
  * @ORM\HasLifecycleCallbacks

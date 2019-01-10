@@ -5,7 +5,7 @@ namespace BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Service
+ * Service entity
  *
  * @ORM\Table(name="service")
  * @ORM\Entity

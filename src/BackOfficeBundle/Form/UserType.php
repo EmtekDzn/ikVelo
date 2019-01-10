@@ -6,10 +6,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * UserType form to create or edit a user
+ */
 class UserType extends AbstractType
 {
     /**
      * {@inheritdoc}
+     * 
+     * Fields of the form
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
