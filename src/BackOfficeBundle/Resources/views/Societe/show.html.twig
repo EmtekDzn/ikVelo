@@ -1,7 +1,7 @@
 {% extends 'BackOfficeBundle:Default:backtemplate.html.twig' %}
 
 {% block body %}
-    <h1>Societe</h1>
+    <h1>Détails de la société</h1>
 
     <table>
         <tbody>
@@ -22,15 +22,15 @@
 
     <ul>
         <li>
-            <a href="{{ path('societe_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('societe_edit', { 'id': societe.id }) }}">Edit</a>
+            <a href="{{ path('societe_edit', { 'id': societe.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('societe_index') }}">Retour à la liste</a>
         </li>
     </ul>
 {% endblock %}

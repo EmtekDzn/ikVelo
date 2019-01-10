@@ -40,7 +40,7 @@ class Societe
      *
      * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Ville")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $ville;

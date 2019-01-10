@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('societe_show', { 'id': societe.id }) }}">show</a>
+                            <a href="{{ path('societe_show', { 'id': societe.id }) }}">Détails</a>
                         </li>
                         <li>
-                            <a href="{{ path('societe_edit', { 'id': societe.id }) }}">edit</a>
+                            <a href="{{ path('societe_edit', { 'id': societe.id }) }}">Editer</a>
                         </li>
                     </ul>
                 </td>
@@ -35,10 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('societe_new') }}">Create a new societe</a>
-        </li>
-        <li>
-            <a href="{{ path('back_index') }}">Back to admin panel</a>
+            <a href="{{ path('societe_new') }}">Nouvelle société</a>
         </li>
     </ul>
 {% endblock %}

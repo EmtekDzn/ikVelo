@@ -79,7 +79,7 @@ class User
      *
      * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Societe")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $societe;
@@ -99,7 +99,7 @@ class User
      *
      * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Ville")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="ville_id", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $ville;
