@@ -4,7 +4,7 @@
 
 {% block body %}
 {% if not deplacement.validation %}
-<div id="create-deplacement-jour">
+<div class="buttons">
     <a href="{{ path('front_deplacement_jour_create', { 'id': deplacement.id }) }}">Créer un nouveau déplacement</a>
 </div>
 {% endif %}
@@ -29,7 +29,7 @@
             <td>{% if deplacementJour.date %}{{ deplacementJour.date|date('Y-m-d') }}{% endif %}</td>
             <td>{% if deplacementJour.created %}{{ deplacementJour.created|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if deplacementJour.updated %}{{ deplacementJour.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>
+            <td class="buttons buttons-table">
                 {% if not deplacement.validation %}
                 <a href="{{ path('front_deplacement_jour_edit', { 'id': deplacementJour.id }) }}">Editer</a>
                 {% endif %}

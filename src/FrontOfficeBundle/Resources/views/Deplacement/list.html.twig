@@ -28,10 +28,10 @@
             <td>{% if deplacement.validation %}Validé{% else %}Non validé{% endif %}</td>
             <td>{{ deplacement.id }}</td>
 
-            <td>
+            <td class="buttons buttons-table">
                 <a href="{{ path('front_deplacement_jour_list', { 'id': deplacement.id }) }}">Détails</a>
             </td>
-            <td>
+            <td class="buttons buttons-table">
                 {% if not deplacement.validation %}{#If the deplacement is not validated#}
                 <a href="{{ path('front_deplacement_edit', { 'id': deplacement.id }) }}">Editer</a>{#Disply the edit
                 link#}

@@ -233,18 +233,18 @@ div>label {
 
 /* Landing page */
 
-h1, #landing-links {
+h1 {
 	text-align: center;
 }
 
-/* Create DeplacementJour button */
+/* Buttons */
 
-#create-deplacement-jour {
+.buttons {
 	text-align: center;
 	margin: 20px;
 }
 
-#create-deplacement-jour>a {
+.buttons>a {
 	background-color: #5383d3;
 	color: white;
 	padding: 14px 20px;
@@ -254,10 +254,14 @@ h1, #landing-links {
 	cursor: pointer;
 }
 
-#create-deplacement-jour>a:hover {
+.buttons>a:hover {
 	background-color: #446db4;
 }
 
+.buttons-table > a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 /* General */
 
 body {
@@ -268,6 +272,9 @@ table {
 	margin-top: 1em;
 	border-collapse: collapse;
 	width: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
 }
 
 th, td {
