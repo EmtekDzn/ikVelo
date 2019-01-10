@@ -1,7 +1,7 @@
 {% extends 'BackOfficeBundle:Default:backtemplate.html.twig' %}
 
 {% block body %}
-    <h1>Deplacements list</h1>
+    <h1>Liste des déplacements</h1>
 
     <table id="indextables">
         <thead>
@@ -29,10 +29,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('deplacements_show', { 'id': deplacement.id }) }}">show</a>
+                            <a href="{{ path('deplacements_show', { 'id': deplacement.id }) }}">Détails</a>
                         </li>
                         <li>
-                            <a href="{{ path('deplacements_edit', { 'id': deplacement.id }) }}">edit</a>
+                            <a href="{{ path('deplacements_edit', { 'id': deplacement.id }) }}">Editer</a>
                         </li>
                     </ul>
                 </td>
@@ -40,10 +40,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('back_index') }}">Back to admin panel</a>
-        </li>
-    </ul>
 {% endblock %}

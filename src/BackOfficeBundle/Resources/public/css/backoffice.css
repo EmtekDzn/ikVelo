@@ -2,7 +2,7 @@
 	background-color:#292c2f;
 	box-shadow:0 1px 1px #ccc;
 	padding: 20px 40px;
-	height: 80px;
+	height: 9vh;
 	color: #ffffff;
 	box-sizing: border-box;
 	top:-100px;
@@ -141,10 +141,7 @@ body {
 }
 
 .content {
-	margin-left: auto;
-	margin-right: auto;
-	min-height: 800px;
-	width: 80vw;
+	min-height: 72vh;
 }
 
 .footer-basic-centered{
@@ -154,9 +151,7 @@ body {
 	width: 100%;
 	text-align: center;
 	font: normal 18px sans-serif;
-
 	padding: 20px;
-	margin-top: 80px;
 }
 
 .footer-basic-centered .footer-company-motto{
@@ -221,15 +216,12 @@ table td, table th {
 	padding: 8px;
 }
 
-table td ul {
+ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-table td ul a {
-	color: red;
-}
 
 table tr:nth-child(even){background-color: #f2f2f2;}
 
@@ -238,15 +230,25 @@ table tr:hover {background-color: #ddd;}
 table th {
 	padding-top: 12px;
 	padding-bottom: 12px;
-	background-color: #446caf;
+	background-color: #292c2f;
 	color: white;
 }
 
 #wp {
-	width: 500px;
-	height: 500px;
+	width: 100%;
+	height: 90vh;
+	background-size: cover;
+}
+
+#maintext {
+	color: white;
+	font-size: 70px;
+	text-align: center;
+	position: relative;
+    top: 40%;
 }
 
 #indextables {
 	width: 100%;
 }
+

@@ -69,7 +69,7 @@ class User
      *
      * @ORM\ManyToOne(targetEntity="BackOfficeBundle\Entity\Service")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="service_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="service_id", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $service;

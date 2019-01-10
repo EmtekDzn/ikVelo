@@ -18,15 +18,15 @@
 
     <ul>
         <li>
-            <a href="{{ path('service_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('service_edit', { 'id': service.id }) }}">Edit</a>
+            <a href="{{ path('service_edit', { 'id': service.id }) }}">Editer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('service_index') }}">Retour à la liste</a>
         </li>
     </ul>
 {% endblock %}

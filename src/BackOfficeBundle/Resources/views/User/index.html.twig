@@ -1,7 +1,7 @@
 {% extends 'BackOfficeBundle:Default:backtemplate.html.twig' %}
 
 {% block body %}
-    <h1 >Users list</h1>
+    <h1 >Liste des utilisateurs</h1>
 
     <table id="indextables">
         <thead>
@@ -29,10 +29,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}"><i class="fas fa-pencil-alt"></i>a</a>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}"><i class="fas fa-pencil-alt"></i>Détails</a>
                         </li>
                         <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">Editer</a>
                         </li>
                     </ul>
                 </td>
@@ -43,10 +43,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
-        </li>
-        <li>
-            <a href="{{ path('back_index') }}">Back to admin panel</a>
+            <a href="{{ path('user_new') }}">Nouvel utilisateur</a>
         </li>
     </ul>
 {% endblock %}
