@@ -13,6 +13,7 @@ class UserController extends Controller
     /**
      * @Route("/{id}/profil/edit", name="front_profil_edit")
      * @Method({"GET", "POST"})
+     * Handles the edition of the user's profile
      */
     public function editAction(Request $request, $id)
     {
@@ -23,7 +24,7 @@ class UserController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $user->setUpdated(time());
+            $user->setUpdated(time());//Set the last update as now
             return $this->redirectToRoute('front_landing');
         }
 

@@ -15,6 +15,7 @@ class DeplacementJourController extends Controller
 {
     /**
      * @Route("/list/{id}", name="front_deplacement_jour_list")
+     * Renders a list of all of the user's DeplacementJours
      */
     public function listAction($id)
     {   
@@ -29,6 +30,7 @@ class DeplacementJourController extends Controller
 
     /**
      * @Route("/create/{id}", name="front_deplacement_jour_create")
+     * Handles the creation of a new DeplacementJour for the user
      */
     public function createAction(Request $request, $id)
     {
@@ -38,14 +40,14 @@ class DeplacementJourController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $deplacement = $this->getDoctrine()->getRepository('BackOfficeBundle:Deplacement')->find($id);
-            $deplacementJour->setDeplacement($deplacement);
+            $deplacement = $this->getDoctrine()->getRepository('BackOfficeBundle:Deplacement')->find($id);//Find the Deplacement to associate the DeplacementJour with
+            $deplacementJour->setDeplacement($deplacement);//Associate the user with the DeplacementJour
 
             $date = new \DateTime();
             $date->setTimestamp(time());
             
-            $deplacementJour->setUpdated($date);
-            $deplacement->setUpdated($date);
+            $deplacementJour->setUpdated($date);//Set last update of DeplacementJour as its creation
+            $deplacement->setUpdated($date);//The Deplacement has also been updated
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($deplacementJour);
@@ -60,16 +62,21 @@ class DeplacementJourController extends Controller
     /**
      * @Route("/edit/{id}", name="front_deplacement_jour_edit")
      * @Method({"GET", "POST"})
+     * Handles the edition of a Deplacement for the user
      */
     public function editAction(Request $request, DeplacementJour $deplacementJour)
     {
+        if ($deplacementJour->getDeplacement()->getValidation()) {//If the Deplacement is validated, it is uneditable
+            return $this->redirectToRoute('front_deplacement_jour_list', array('id' => $deplacementJour->getDeplacement()->getId()));
+                //Go back to the list
+        }
         $editForm = $this->createForm('FrontOfficeBundle\Form\DeplacementJourType', $deplacementJour);
         $editForm->handleRequest($request);
 
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $deplacementJour->setUpdated(time());
-            $deplacementJour->getDeplacement()->setUpdated(time());
+            $deplacementJour->setUpdated(time());//Set the DeplacementJour's last update as now
+            $deplacementJour->getDeplacement()->setUpdated(time());//Set the Deplacement's last update as now
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('front_deplacement_jour_list', array('id' => $deplacementJour->getDeplacement()->getId()));

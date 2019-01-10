@@ -191,6 +191,8 @@ body {
 	}
 }
 
+/* Forms */
+
 input[type=text], input[type=number], select {
 	width: 100%;
 	padding: 12px 20px;
@@ -229,9 +231,13 @@ div>label {
 	text-align: left;
 }
 
+/* Landing page */
+
 h1, #landing-links {
 	text-align: center;
 }
+
+/* Create DeplacementJour button */
 
 #create-deplacement-jour {
 	text-align: center;
@@ -251,6 +257,8 @@ h1, #landing-links {
 #create-deplacement-jour>a:hover {
 	background-color: #446db4;
 }
+
+/* General */
 
 body {
 	font-family: sans-serif;

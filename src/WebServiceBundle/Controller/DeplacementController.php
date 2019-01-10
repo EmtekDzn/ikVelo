@@ -11,13 +11,13 @@ class DeplacementController extends Controller
 {
     /**
      * @Route("/")
+     * Returns a jsonresponse of all Deplacements
      */
     public function allAction()
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findAllRest();
-        header("Access-Control-Allow-Origin: *");
-        // header("Content­-Type: application/json");
+        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
@@ -28,12 +28,13 @@ class DeplacementController extends Controller
 
     /**
      * @Route("/byUser/{id}")
+     * Returns a jsonresponse of all Deplacements of a user
      */
     public function byUserAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserIdRest($id);
-        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
@@ -44,12 +45,13 @@ class DeplacementController extends Controller
 
     /**
      * @Route("/byUserYearMonth/{id}/{year}/{month}")
+     * Returns a jsonresponse of all Deplacements of a user from a specific month and year
      */
     public function byUserYearMonthAction($id, $year, $month)
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserYearMonthRest($id, $year, $month);
-        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,

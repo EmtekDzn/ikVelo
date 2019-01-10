@@ -6,11 +6,11 @@
 <table>
     <thead>
         <tr>
-            <th>Annee</th>
+            <th>Année</th>
             <th>Mois</th>
-            <th>Datevalidation</th>
-            <th>Created</th>
-            <th>Updated</th>
+            <th>Date de validation</th>
+            <th>Créé</th>
+            <th>Mis à jour</th>
             <th>Validation</th>
             <th>Id</th>
             <th>Actions</th>
@@ -25,15 +25,16 @@
             <td>{% if deplacement.dateValidation %}{{ deplacement.dateValidation|date('Y-m-d') }}{% endif %}</td>
             <td>{% if deplacement.created %}{{ deplacement.created|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if deplacement.updated %}{{ deplacement.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if deplacement.validation %}Yes{% else %}No{% endif %}</td>
+            <td>{% if deplacement.validation %}Validé{% else %}Non validé{% endif %}</td>
             <td>{{ deplacement.id }}</td>
 
             <td>
-                <a href="{{ path('front_deplacement_jour_list', { 'id': deplacement.id }) }}">details</a>
+                <a href="{{ path('front_deplacement_jour_list', { 'id': deplacement.id }) }}">Détails</a>
             </td>
             <td>
-                {% if not deplacement.validation %}
-                <a href="{{ path('front_deplacement_edit', { 'id': deplacement.id }) }}">edit</a>
+                {% if not deplacement.validation %}{#If the deplacement is not validated#}
+                <a href="{{ path('front_deplacement_edit', { 'id': deplacement.id }) }}">Editer</a>{#Disply the edit
+                link#}
                 {% endif %}
             </td>
 

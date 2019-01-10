@@ -5,9 +5,9 @@
 {% block body %}
 <h1>Bonjour M. {{user.prenom}} {{user.nom}}</h1>
 <div id="landing-links">
-<a href="{{ path('front_profil_edit', { 'id': user.id }) }}">Editer mon profil</a>
-<a href="{{ path('front_deplacements_list', { 'id': user.id }) }}">Lister mes déplacements</a>
-<a href="{{ path('front_deplacements_create', { 'id': user.id }) }}">Créer un déplacement</a>
+    <a href="{{ path('front_profil_edit', { 'id': user.id }) }}">Editer mon profil</a>
+    <a href="{{ path('front_deplacements_list', { 'id': user.id }) }}">Lister mes déplacements</a>
+    <a href="{{ path('front_deplacements_create', { 'id': user.id }) }}">Créer un déplacement</a>
 </div>
 
 {% endblock %}
