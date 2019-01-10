@@ -5,11 +5,7 @@ A simple Symfony learning project for our engineering school.
 # Installation
 
 ### Requirements
-Php >= 5.6
-Symfony 3.1
-Mysql
-Apache2
-Git
+Php >= 5.6, Symfony 3.1, Mysql, Apache2, Git
 
 ### Create files and folders
 
