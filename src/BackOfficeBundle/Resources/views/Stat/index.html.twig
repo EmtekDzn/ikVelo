@@ -1,18 +1,10 @@
 {% extends 'BackOfficeBundle:Default:backtemplate.html.twig' %}
 
 {% block body %}
-    
-    <pre>
-        {{ dump(usersPerCity) }}
-    </pre>
-    <pre>
-        {{ dump(kmAndUsersPerSociety) }}
-    </pre>
-    <pre>
-        {{ dump(kmPerMonthPerUserPerSociety) }}
-    </pre>
 
-    <table id="customers">
+    <h1>Statistiques</h1>
+
+    <table id="indextables">
         <tr>
             <th>Societe</th>
             {% for month in months %}

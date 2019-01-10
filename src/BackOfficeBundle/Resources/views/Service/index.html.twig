@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Services list</h1>
 
-    <table>
+    <table id="indextables">
         <thead>
             <tr>
                 <th>Service</th>
@@ -33,10 +33,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('back_index') }}">Back to admin panel</a>
+            <a href="{{ path('service_new') }}">Create a new service</a>
         </li>
         <li>
-            <a href="{{ path('service_new') }}">Create a new service</a>
+            <a href="{{ path('back_index') }}">Back to admin panel</a>
         </li>
     </ul>
 {% endblock %}
