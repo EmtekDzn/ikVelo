@@ -17,7 +17,6 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findAllRest();
-        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
@@ -34,7 +33,6 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserIdRest($id);
-        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
@@ -51,7 +49,6 @@ class DeplacementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $deplacements = $em->getRepository('BackOfficeBundle:Deplacement')->findByUserYearMonthRest($id, $year, $month);
-        header("Access-Control-Allow-Origin: *");//For some reason, just putting the header in the response does not work
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
