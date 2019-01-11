@@ -21,7 +21,7 @@ class DeplacementController extends Controller
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
-            array('Content-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
+            array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin' => '*')
         );
         return $response;
     }
@@ -38,7 +38,7 @@ class DeplacementController extends Controller
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
-            array('Content-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
+            array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin' => '*')
         );
         return $response;
     }
@@ -55,7 +55,7 @@ class DeplacementController extends Controller
         $response = new Response(
             json_encode($deplacements),
             Response::HTTP_OK,
-            array('Content-Type' => 'application/json', 'Access­-Control-­Allow-­Origin' => '*')
+            array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin' => '*')
         );
         return $response;
     }
