@@ -5,7 +5,7 @@ A simple Symfony learning project for our engineering school.
 # Installation
 
 ### Requirements
-Php >= 5.6, Symfony 3.1, Mysql, Apache2, Git
+Php >= 7.1, Symfony 3.1, Mysql, Apache2, Git
 
 ### Create files and folders
 
@@ -13,11 +13,14 @@ Create a new Symfony project (version 3.1) named ikVelo with :
 
     symfony new ikVelo 3.1
 
-Next up, clone the repository :
+Next run this set of instructions inside the project repository :
 
-    git clone https://github.com/EmtekDzn/ikVelo.git
+    git init
+    git remote add origin https://github.com/EmtekDzn/ikVelo.git
+    git fetch
+    git checkout origin/master -ft
 
-Then run this commands inside the project folder to install the assets :
+Then install the assets :
 
     php bin/console cache:clear
     php bin/console assets:install
