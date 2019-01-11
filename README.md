@@ -1,3 +1,4 @@
+
 # ikVelo
 
 A simple Symfony learning project for our engineering school.
@@ -13,7 +14,7 @@ Create a new Symfony project (version 3.1) named ikVelo with :
 
     symfony new ikVelo 3.1
 
-Next run this set of instructions inside the project repository :
+Next run these commands inside the project repository :
 
     git init
     git remote add origin https://github.com/EmtekDzn/ikVelo.git
@@ -26,5 +27,5 @@ Then install the assets :
     php bin/console assets:install
 
 Edit the *parameters.yml* file in *app/config/* to match your database configuration.
+Here is a link to the [SQL script](https://pastebin.com/1v4yRrAw) for this project.
 Make sure to read [this documentation](https://symfony.com/doc/3.1/setup/web_server_configuration.html) to set up your Apache site.
-
