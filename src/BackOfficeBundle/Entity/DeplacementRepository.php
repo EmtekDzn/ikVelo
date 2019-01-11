@@ -25,7 +25,7 @@ class DeplacementRepository extends \Doctrine\ORM\EntityRepository
     {
         $em = $this->getEntityManager()->createQuery(
             'SELECT d FROM BackOfficeBundle:Deplacement d, BackOfficeBundle:User u
-            WHERE u.id =' . $id); //Select Deplacements associated with the userId
+            WHERE d.user =' . $id.'AND d.user = u.id'); //Select Deplacements associated with the userId
         return $em->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
     }
 
