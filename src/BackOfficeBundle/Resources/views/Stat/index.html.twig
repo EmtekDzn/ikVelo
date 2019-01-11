@@ -4,6 +4,34 @@
 
     <h1>Statistiques</h1>
 
+    <table class="statable" id="indextables">
+        <tr>
+            <th>Ville</th>
+            <th>Nombre d'utilisateurs</th>
+        </tr>
+        {% for value in usersPerCity %}
+            <tr>
+                <td>{{ value['ville'] }}</td>
+                <td>{{ value['Nombre_d_utilisateurs'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table class="statable" id="indextables">
+        <tr>
+            <th>Societe</th>
+            <th>Nombre d'utilisateurs</th>
+            <th>Nombre total de km</th>
+        </tr>
+        {% for value in kmAndUsersPerSociety %}
+            <tr>
+                <td>{{ value['societe'] }}</td>
+                <td>{{ value['Nombre_d_utilisateurs'] }}</td>
+                <td>{{ value['Total_km'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
     <table id="indextables">
         <tr>
             <th>Societe</th>
